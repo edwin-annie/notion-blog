@@ -5,6 +5,7 @@ module.exports = {
       "This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.",
   },
   plugins: [
+
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-sass",
@@ -65,17 +66,6 @@ module.exports = {
             },
           },
           {
-      resolve: "gatsby-source-notion-database-private",
-      options: {
-        sourceConfig: [
-          {
-            name: "posts",
-            table:"https://wax-robin-15a.notion.site/25b735cb8c174fc6b2301701e923069f?v=2865408ca9f34f6ab1255316c236d9ab",
-            cacheType: "html",
-          },
-        ],
-      },
-    },
         ],
       },
     },
@@ -93,5 +83,16 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     "gatsby-plugin-netlify", // make sure to keep it last in the array
+    { resolve: "gatsby-source-notion-database-private",
+      options: {
+        sourceConfig: [
+          {
+            name: "posts",
+            table:"https://wax-robin-15a.notion.site/25b735cb8c174fc6b2301701e923069f?v=2865408ca9f34f6ab1255316c236d9ab",
+            cacheType: "html",
+          },
+        ],
+      },
+    },
   ],
 };
